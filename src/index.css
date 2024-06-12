@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap");
+
+:root {
+  --mainColor: #e53e3e;
+  --secondaryColor: #f07373;
+  --pageColor: #1d1f21;
+}
+
+::selection {
+  background-color: var(--mainColor);
+  color: rgb(255, 255, 255);
+}
+
+#root {
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto Mono", sans-serif;
+  background-color: var(--pageColor);
+  color: rgb(255, 255, 255);
+  min-height: 100vh;
+  width: 100%;
+  overflow: overlay;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  color: var(--mainColor);
+  font-size: 3rem;
+  margin: 3rem;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0.4rem;
+  background-color: var(--mainColor);
+  transform: translate(-2rem, 2rem);
+}
+
+.title::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0.4rem;
+  background-color: var(--mainColor);
+  transform: translate(2rem, 2rem);
+
+}
+
+.title::before {
+  animation-name: showTime1;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode: forwards;
+}
+
+.title::after {
+  animation-name: showTime2;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes showTime1 {
+  0 {
+    width: 0;
+    transform: translate(2rem, 2rem);
+  }
+
+  100% {
+    width: 30px;
+    transform: translate(-0.5rem, 2rem);
+  }
+}
+
+@keyframes showTime2 {
+  0 {
+    width: 0;
+    transform: translate(-2rem, 2rem);
+  }
+
+  100% {
+    width: 30px;
+    transform: translate(0.5rem, 2rem);
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+.menu h2 {
+  color: var(--mainColor);
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.menu h2::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0.3rem;
+  background-color: var(--mainColor);
+}
+
+.menu h2::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0.3rem;
+  background-color: var(--mainColor);
+}
+
+.pizzas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  gap: 2rem;
+}
+
+.pizza {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px var(--mainColor);
+  background: linear-gradient(45deg, rgb(187, 182, 182), var(--secondaryColor));
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.sold {
+  filter: grayscale(100%);
+}
+
+.pizza:hover {
+  transform: scale(0.98);
+  box-shadow: 0 0 10px var(--secondaryColor);
+}
+
+.pizza img {
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+.pizza button {
+  background-color: var(--mainColor);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+.pizza button:hover {
+  background-color: white;
+  color: var(--mainColor);
+}
+
+.pizza button:active {
+  transform: scale(0.9);
+}
+
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--mainColor);
+  color: white;
+  height: 4rem;
+  width: 100%;
+  /* position: absolute;
+  bottom: 0; */
+  margin-top: 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 50px;
+}
